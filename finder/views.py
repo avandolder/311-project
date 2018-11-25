@@ -9,11 +9,11 @@ def signup(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			username = form.cleaned_data_.get('username')
+			username = form.cleaned_data.get('username')
 			raw_password = form.cleaned_data.get('password1')
 			user = authenticate(username=username, password=raw_password)
 			login(request, user)
-			return #redirect('home') uncomment once we have a home page
+			return redirect('/finder')
 	else:
 		form = UserCreationForm()
 	return render(request, 'finder/signup.html', {'form':form})

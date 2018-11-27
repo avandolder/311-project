@@ -10,8 +10,15 @@
       {% block content %}
       {% endblock %}
       {% if user.is_authenticated %}
-        <a href="/logout">logout</a>
+        <a href="/logout">Logout</a>
+        <br>
+        <a href='/profile'>Profile</a>
+      {% else %}
+        <br>
+        <a href='/login'>Login</a>
       {% endif %}
+        <br>
+        <a href = '/finder'>Home</a>
     </div>
   </body>
 </html>

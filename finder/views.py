@@ -25,3 +25,6 @@ def index(request):
 def logout(request):
 	django_logout(request)
 	return redirect('/login')
+
+def profile(request):
+	return render(request, 'finder/profile.html')

@@ -45,5 +45,5 @@ def paths(request):
 	return render(request, 'finder/paths.html')
 
 def courseinfo(request):
-	t_course = Course.objects.all()[0]
+	t_course = Course.objects.all()[0]	#test course
 	return render(request, 'finder/courseinfo.html', {'course':t_course})

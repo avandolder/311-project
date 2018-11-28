@@ -9,6 +9,7 @@
     <div id="content">
       {% block content %}
       {% endblock %}
+      <br><br>
       {% if user.is_authenticated %}
         <a href="/logout">Logout</a>
         <br>

@@ -1,0 +1,16 @@
+{% extends "finder/base.html" %}
+
+{% block title %}CourseFinder{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+	<h1> Name: {{course.name}}</h1><br>
+	<p>Code: {{course.faculty}}-{{course.department}}-{{course.course}} </p><br>
+	<p>Description: {{course.desc}} </p><br>
+	<br>
+	<p>Number of Reviews: {{course.review_amt}} </p><br>
+	<p>Average Rating: {{course.review_avg}}</p><br>
+{% else %}
+	Please <a href="/login">login</a> to view course info.<br>
+{% endif %}
+
+{% endblock %}

@@ -3,7 +3,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.detail import DetailView
 
+from finder.models import Course
 
 def signup(request):
 	if request.method == 'POST':
@@ -41,3 +43,7 @@ def faqs(request):
 def paths(request):
 	#return users saved paths
 	return render(request, 'finder/paths.html')
+
+def courseinfo(request):
+	t_course = Course.objects.all()[0]
+	return render(request, 'finder/courseinfo.html', {'course':t_course})

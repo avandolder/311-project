@@ -1,8 +1,11 @@
 # TODO
 
 - [x] Add model for courses
-- [ ] Add user log in/log out forms
-- [ ] Create view for courses
-- [ ] Create view for search
+- [x] Add user log in/log out forms
+- [x] Create view for courses
+- [x] Create view for search
 - [x] Create base template
 - [ ] Create index with search bar
+- [ ] Implement search and filter
+- [ ] Link search results with course info
+- [ ] Implement Path functionality

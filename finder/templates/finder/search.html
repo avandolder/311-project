@@ -1,0 +1,16 @@
+{% extends "finder/base.html" %}
+
+{% block title %}CourseFinder{% endblock %}
+{% block content %}
+<h1>Course Search</h1><br>
+{% if not user.is_authenticated %}
+	Please <a href="/login">login</a> to access search
+{% else %}
+	<a href='/faqs'>How to search</a>
+	<form type="get" action="." style="margin: 0">
+    <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+    <button id="search_submit" type="submit" >Submit</button>
+</form>
+{% endif %}
+
+{% endblock %}

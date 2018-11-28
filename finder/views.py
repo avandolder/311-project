@@ -28,3 +28,16 @@ def logout(request):
 
 def profile(request):
 	return render(request, 'finder/profile.html')
+
+def search(request):
+	if request.method == 'GET':
+		search_query = request.GET.get('search_box', None)
+		#query course database
+	return render(request, 'finder/search.html')
+
+def faqs(request):
+	return render(request, 'finder/faqs.html')
+
+def paths(request):
+	#return users saved paths
+	return render(request, 'finder/paths.html')

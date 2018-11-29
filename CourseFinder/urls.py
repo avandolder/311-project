@@ -20,4 +20,5 @@ urlpatterns = [
     path('profile/paths/', views.paths),
     path('degreepaths/', views.degreepaths),
     path('courseinfo/<int:faculty>-<int:department>-<int:course>', views.courseinfo, name='courseinfo'),
+    path('savecourse/<int:faculty>-<int:department>-<int:course>', views.savecourse, name='savecourse'),
 ]

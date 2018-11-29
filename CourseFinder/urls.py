@@ -19,6 +19,7 @@ urlpatterns = [
     path('faqs/', views.faqs),
     path('profile/paths/', views.paths),
     path('degreepaths/', views.degreepaths),
+    path('coursedirectory/', views.coursedirectory),
     path('courseinfo/<int:faculty>-<int:department>-<int:course>', views.courseinfo, name='courseinfo'),
     path('savecourse/<int:faculty>-<int:department>-<int:course>', views.savecourse, name='savecourse'),
 ]

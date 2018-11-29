@@ -97,3 +97,6 @@ def savecourse(request, faculty, department, course):
 
 def degreepaths(request):
     return render(request, 'finder/csdegree.html')
+
+def coursedirectory(request):
+    return render(request, 'finder/coursedirectory.html', {'courses': Course.objects})

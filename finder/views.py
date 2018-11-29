@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import AnonymousUser
 from django.views.generic.detail import DetailView
 
 from finder.models import Course
@@ -30,8 +31,13 @@ def logout(request):
 
 def delete_user(request):
     user = request.user
-    django_logout(request)
-    user.delete()
+
+    try:
+        django_logout(request)
+        user.delete()
+    except NotImplementedError as e:
+        pass
+
     return redirect('/finder/')
 
 def profile(request):

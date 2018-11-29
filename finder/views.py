@@ -50,7 +50,7 @@ def search(request):
             return render(request, 'finder/search.html')
 
         # Check if query is by name or code.
-        if search_query.lstrip()[1].isdigit():
+        if search_query.lstrip()[0].isdigit():
             # If the first character is numeric, then search by code.
             return redirect('/courseinfo/' + search_query.strip())
         else:

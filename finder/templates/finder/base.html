@@ -21,20 +21,13 @@
 		color: black;
 	}
 	.topnav a.active {
-		background-color: black;
+		background-color: #4CAF50;
 		color: white;
-	}
-	.loginMenu {
-	    background-color: #f3f3f3;
-		border: 1px solid black;
-		padding: 10px;
-		margin-left: 37%;
-		margin-right: 37%;
 	}
 	</style>
   </head>
   <body>
-    <div style="font-size: 40px;">Course<b>Finder</b></div>
+    <h1>CourseFinder</h1>
     <div class="topnav">
     <a href = '/finder'>Home</a>
 	{% if user.is_authenticated %}

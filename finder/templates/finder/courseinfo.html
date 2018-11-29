@@ -8,11 +8,13 @@
 	<p>Description: {{course.desc}}</p>
 	<p>Number of Reviews: {{course.review_amt}}</p>
 	<p>Average Rating: {{course.review_avg}}</p>
-  <form action="review/{{course.faculty}}-{{course.department}}-{{course.course}}" method="post">
+  {% if form %}
+  <form action="/courseinfo/{{course.faculty}}-{{course.department}}-{{course.course}}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Rate course">
   </form>
+  {% endif %}
   <h3>Times previously offered:</h3>
   <ul>
   {% for time in course.coursetime_set.all %}

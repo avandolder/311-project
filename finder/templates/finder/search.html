@@ -2,15 +2,28 @@
 
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
-<h1>Course Search</h1>
+<h2>Course Search</h2>
 {% if not user.is_authenticated %}
-	Please <a href="/login">login</a> to access search
+  Please <a href="/login">login</a> to access search
 {% else %}
-	<a href='/faqs'>How to search</a>
-	<form type="get" action="." style="margin: 0">
+  <a href='/faqs'>How to search</a>
+  <form type="get" action="." style="margin: 0">
     <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
     <button id="search_submit" type="submit" >Submit</button>
   </form>
+
+  {% if courses.exists %}
+  <h3>Matched courses:</h3>
+  <ul>
+    {% for course in courses %}
+    <li>
+      <a href="/courseinfo/{{course.faculty}}-{{course.department}}-{{course.course}}">
+        {{course.faculty}}-{{course.department}}-{{course.course}}:</a>
+      {{course.name}}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 {% endif %}
 
 {% endblock %}

@@ -6,7 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import AnonymousUser
 from django.views.generic.detail import DetailView
 
-from finder.models import Course
+from .models import Course
+from .forms import ReviewForm
 
 def signup(request):
     if request.method == 'POST':
@@ -65,4 +66,17 @@ def paths(request):
 
 def courseinfo(request, faculty, department, course):
     course = get_object_or_404(Course, faculty=faculty, department=department, course=course)
-    return render(request, 'finder/courseinfo.html', {'course': course})
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            rating = form.cleaned_data['rating']
+            course.review_amt += 1
+            course.review_avg = (course.review_avg + int(rating)) / course.review_amt
+            course.save()
+
+        form = None
+    else:
+        form = ReviewForm()
+
+    return render(request, 'finder/courseinfo.html', {'course': course, 'form': form})

@@ -44,22 +44,17 @@ def profile(request):
     return render(request, 'finder/profile.html')
 
 def search(request):
-    if request.method == 'GET':
-        search_query = request.GET.get('search_box', None)
-        if not search_query:
-            return render(request, 'finder/search.html')
+    search_query = request.GET.get('search_box', None)
+    if not search_query:
+        return render(request, 'finder/search.html')
 
-        # Check if query is by name or code.
-        if search_query.lstrip()[0].isdigit():
-            # If the first character is numeric, then search by code.
-            return redirect('/courseinfo/' + search_query.strip())
-        else:
-            courses = Course.objects.filter(name__icontains=search_query)
-            print(courses)
-            if len(courses) >= 1:
-                course = courses[0]
-                course_code = f'{course.faculty}-{course.department}-{course.course}'
-                return redirect('/courseinfo/' + course_code)
+    # Check if query is by name or code.
+    if search_query.lstrip()[0].isdigit():
+        # If the first character is numeric, then search by code.
+        return redirect('/courseinfo/' + search_query.strip())
+    else:
+        courses = Course.objects.filter(name__icontains=search_query)
+        return render(request, 'finder/search.html', {'courses': courses})
 
 def faqs(request):
     return render(request, 'finder/faqs.html')

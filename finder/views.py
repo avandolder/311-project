@@ -68,10 +68,10 @@ def courseinfo(request, faculty, department, course):
     course = get_object_or_404(Course, faculty=faculty, department=department, course=course)
 
     saved_flag = True
-    for i in request.user.savedcourse_set.all():
-        if i.saved_course.course == course.course and i.saved_course.department == course.department:
-            saved_flag = False
-
+    if not isinstance(request.user, AnonymousUser):
+        for i in request.user.savedcourse_set.all():
+            if i.saved_course.course == course.course and i.saved_course.department == course.department:
+                saved_flag = False
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)

@@ -78,7 +78,10 @@ def courseinfo(request, faculty, department, course):
         if form.is_valid():
             rating = form.cleaned_data['rating']
             course.review_amt += 1
-            course.review_avg = (max(course.review_avg, 1) + int(rating)) / 2
+            if course.review_avg == 0:
+                course.review_avg = float(rating)
+            else:
+                course.review_avg = (max(course.review_avg, 1) + int(rating)) / 2
             course.save()
 
         form = None

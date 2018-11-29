@@ -31,5 +31,6 @@ class Professor(models.Model):
         return f'{self.course.name}: {self.name}'
 
 class SavedCourse(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    saved_course = Course()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+    saved_course = models.ForeignKey(Course, on_delete=models.CASCADE, blank=True, null=True)
+

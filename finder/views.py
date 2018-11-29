@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import AnonymousUser
 from django.views.generic.detail import DetailView
 
-from .models import Course
+from .models import Course, SavedCourse
 from .forms import ReviewForm
 
 def signup(request):

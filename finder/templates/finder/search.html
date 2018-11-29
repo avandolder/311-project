@@ -2,16 +2,24 @@
 
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
-<h2>Course Search</h2>
 {% if not user.is_authenticated %}
-  Please <a href="/login">login</a> to access search
+	<div class="standardBox">
+	<center>
+	<div style="font-size:23px;"><b>Course Search</b></div><br>
+	Please <a href="/login">login</a> to access search
+  </center>
+  </div>
 {% else %}
-  <a href='/faqs'>How to search</a>
+<div class="searchBox">
+<center>
+<div style="font-size:23px;"><b>Course Search</b></div><br>
+  <a href='/faqs'>How to search</a><br><br>
   <form type="get" action="." style="margin: 0">
     <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
     <button id="search_submit" type="submit" >Submit</button>
   </form>
-
+</center>
+</div>
   {% if courses.exists %}
   <h3>Matched courses:</h3>
   <ul>

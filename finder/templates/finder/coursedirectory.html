@@ -1,0 +1,15 @@
+{% extends "finder/base.html" %}
+
+{% block title %}CourseFinder{% endblock %}
+{% block content %}
+  <h2>Course Directory</h2>
+  <ul>
+    {% for course in courses.all %}
+    <li>
+      <a href="/courseinfo/{{course.faculty}}-{{course.department}}-{{course.course}}">
+        {{course.faculty}}-{{course.department}}-{{course.course}}:</a>
+      {{course.name}}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

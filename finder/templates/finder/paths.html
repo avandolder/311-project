@@ -3,9 +3,9 @@
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-	<h1>Paths will go here!</h1><br>
+	<h2>Paths will go here!</h2>
 {% else %}
-	Please <a href="/login">login</a> to view your paths <br>
+	<p>Please <a href="/login">login</a> to view your paths</p>
 {% endif %}
 
 {% endblock %}

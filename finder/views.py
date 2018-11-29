@@ -28,6 +28,12 @@ def logout(request):
     django_logout(request)
     return redirect('/login')
 
+def delete_user(request):
+    user = request.user
+    django_logout(request)
+    user.delete()
+    return redirect('/finder/')
+
 def profile(request):
     return render(request, 'finder/profile.html')
 

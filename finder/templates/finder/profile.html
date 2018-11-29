@@ -2,12 +2,13 @@
 
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
-<h1> Profile </h1>
+<h2>Profile</h2>
 {% if not user.is_authenticated %}
 	Please <a href="/login">login</a> to view your profile
 {% else %}
-	<p>Welcome to your profile {{user.username}}</p><br>
-	<a href="/profile/paths">View your paths</a><br>
+	<p>Welcome to your profile {{user.username}}</p>
+	<p><a href="/profile/paths">View your paths</a></p>
+  <p><a href="/finder/delete_user">Delete your account</a></p>
 {% endif %}
 
 {% endblock %}

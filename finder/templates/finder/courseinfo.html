@@ -8,7 +8,7 @@
 	<p>Code: {{course.faculty}}-{{course.department}}-{{course.course}}</p>
 	<p>Description: {{course.desc}}</p>
 	<p>Number of Reviews: {{course.review_amt}}</p>
-	<p>Average Rating: {{course.review_avg}}</p>
+	<p>Average Rating: {{course.review_avg|floatformat:2}}</p>
   {% if form %}
   <form action="/courseinfo/{{course.faculty}}-{{course.department}}-{{course.course}}" method="post">
     {% csrf_token %}

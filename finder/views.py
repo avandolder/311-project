@@ -94,3 +94,6 @@ def savecourse(request, faculty, department, course):
     course_code = f'{c.saved_course.faculty}-{c.saved_course.department}-{c.saved_course.course}'
     c.save()
     return redirect('/courseinfo/' + course_code)
+
+def degreepaths(request):
+    return render(request, 'finder/csdegree.html')

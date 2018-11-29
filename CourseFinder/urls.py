@@ -18,5 +18,6 @@ urlpatterns = [
     path('search/', views.search),
     path('faqs/', views.faqs),
     path('profile/paths/', views.paths),
+    path('degreepaths/', views.degreepaths),
     path('courseinfo/<int:faculty>-<int:department>-<int:course>', views.courseinfo, name='courseinfo'),
 ]

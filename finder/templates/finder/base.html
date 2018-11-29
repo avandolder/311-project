@@ -5,23 +5,21 @@
   </head>
   <body>
     <h1>CourseFinder</h1>
-    <nav></nav>
+    <nav>
+      <ul>
+      {% if user.is_authenticated %}
+        <li><a href="/logout">Logout</a></li>
+        <li><a href='/profile'>Profile</a></li>
+        <li><a href='/search'>Course Search</a></li>
+      {% else %}
+        <li><a href='/login'>Login</a></li>
+      {% endif %}
+        <li><a href = '/finder'>Home</a></li>
+      </ul>
+    </nav>
     <div id="content">
       {% block content %}
       {% endblock %}
-      <br><br>
-      {% if user.is_authenticated %}
-        <a href="/logout">Logout</a>
-        <br>
-        <a href='/profile'>Profile</a>
-        <br>
-        <a href='/search'>Course Search</a>
-      {% else %}
-        <br>
-        <a href='/login'>Login</a>
-      {% endif %}
-        <br>
-        <a href = '/finder'>Home</a>
     </div>
   </body>
 </html>

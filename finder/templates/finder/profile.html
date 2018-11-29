@@ -7,11 +7,16 @@
 <div style="font-size:25px;"><b>Profile</b></div>
 {% if not user.is_authenticated %}
 	Please <a href="/login">login</a> to view your profile
+</center>
 {% else %}
-	<p>Welcome to your profile {{user.username}}</p>
-	<p><a href="/profile/paths">View your saved courses</a></p>
-  <p><a href="/finder/delete_user">Delete your account</a></p>
-<center>
+Welcome to your profile, {{user.username}}!
+</center>
+<div class="profileInfo">
+<ul style="padding-top:0px;">
+<li><a href="/profile/paths">View your saved courses</a></li>
+<li><a href="/finder/delete_user">Delete your account</a></li>
+</ul>
+</div>
 </div>
 {% endif %}
 

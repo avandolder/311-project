@@ -3,7 +3,19 @@
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-	<h2>Paths will go here!</h2>
+	<h2> Your Saved Courses:</h2>
+	{% if not user.savedcourse_set.exists %}
+		<p> No saved courses!</p> 
+	{% else %}
+		<ul>
+		{% for c in user.savedcourse_set.all %}
+			<li> 
+				{{c.saved_course.faculty}}-{{c.saved_course.department}}-{{c.saved_course.course}}
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
 {% else %}
 	<p>Please <a href="/login">login</a> to view your paths</p>
 {% endif %}

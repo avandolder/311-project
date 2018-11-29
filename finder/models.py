@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Course(models.Model):
     faculty = models.IntegerField()
@@ -28,3 +29,7 @@ class Professor(models.Model):
 
     def __str__(self):
         return f'{self.course.name}: {self.name}'
+
+class SavedCourse(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    saved_course = Course()

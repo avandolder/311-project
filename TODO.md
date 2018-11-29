@@ -5,8 +5,8 @@
 - [x] Create view for courses
 - [x] Create view for search
 - [x] Create base template
-- [ ] Create index with search bar
+- [x] Create index
 - [x] Implement search and filter
-- [ ] Rich search (wildcards, result lists, etc)
-- [ ] Link search results with course info
-- [ ] Implement Path functionality
+- [x] Rich search (wildcards, result lists, etc)
+- [x] Link search results with course info
+- [x] Implement Path functionality

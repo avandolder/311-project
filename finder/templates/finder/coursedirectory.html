@@ -2,7 +2,8 @@
 
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
-  <h2>Course Directory</h2>
+<div class="directoryBox">
+  <div style="font-size:25px"><b>Course Directory</b></div>
   <ul>
     {% for course in courses.all %}
     <li>
@@ -12,4 +13,5 @@
     </li>
     {% endfor %}
   </ul>
+</div>
 {% endblock %}

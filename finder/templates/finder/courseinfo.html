@@ -2,8 +2,9 @@
 
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
+<div class="courseInfoBox">
 {% if user.is_authenticated %}
-	<h2>Name: {{course.name}}</h2>
+	<div style="font-size:25px;"><b>Name: {{course.name}}</b></div>
 	<p>Code: {{course.faculty}}-{{course.department}}-{{course.course}}</p>
 	<p>Description: {{course.desc}}</p>
 	<p>Number of Reviews: {{course.review_amt}}</p>
@@ -15,16 +16,17 @@
     <input type="submit" value="Rate course">
   </form>
   {% endif %}
-  <h3>Times previously offered:</h3>
-  <ul>
+  <br>
+  <div style="font-size:19px;"><b>Times previously offered:</b></div>
+  <ul style="margin-top:5px">
   {% for time in course.coursetime_set.all %}
     <li>
       {{time.semesters}} {{time.dates}} {{time.start_time}}-{{time.end_time}}
     </li>
   {% endfor %}
   </ul>
-  <h3>Professors who have previously taught:</h3>
-  <ul>
+  <div style="font-size:19px;"><b>Professors who have previously taught:</b></div>
+  <ul style="margin-top:5px">
   {% for professor in course.professor_set.all %}
     <li>
       {{professor.name}}
@@ -38,5 +40,5 @@
 {% else %}
 	<p>Please <a href="/login">login</a> to view course info.</p>
 {% endif %}
-
+</div>
 {% endblock %}

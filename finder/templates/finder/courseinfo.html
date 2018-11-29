@@ -3,14 +3,29 @@
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-	<h1> Name: {{course.name}}</h1><br>
-	<p>Code: {{course.faculty}}-{{course.department}}-{{course.course}} </p><br>
-	<p>Description: {{course.desc}} </p><br>
-	<br>
-	<p>Number of Reviews: {{course.review_amt}} </p><br>
-	<p>Average Rating: {{course.review_avg}}</p><br>
+	<h2>Name: {{course.name}}</h2>
+	<p>Code: {{course.faculty}}-{{course.department}}-{{course.course}}</p>
+	<p>Description: {{course.desc}}</p>
+	<p>Number of Reviews: {{course.review_amt}}</p>
+	<p>Average Rating: {{course.review_avg}}</p>
+  <h3>Times previously offered:</h3>
+  <ul>
+  {% for time in course.coursetime_set.all %}
+    <li>
+      {{time.semesters}} {{time.dates}} {{time.start_time}}-{{time.end_time}}
+    </li>
+  {% endfor %}
+  </ul>
+  <h3>Professors who have previously taught:</h3>
+  <ul>
+  {% for professor in course.professor_set.all %}
+    <li>
+      {{professor.name}}
+    </li>
+  {% endfor %}
+  </ul>
 {% else %}
-	Please <a href="/login">login</a> to view course info.<br>
+	<p>Please <a href="/login">login</a> to view course info.</p>
 {% endif %}
 
 {% endblock %}

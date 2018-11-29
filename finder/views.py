@@ -55,7 +55,7 @@ def search(request):
         return redirect('/courseinfo/' + search_query.strip())
     else:
         courses = Course.objects.filter(name__icontains=search_query)
-        return render(request, 'finder/search.html', {'courses': courses})
+        return render(request, 'finder/search.html', {'courses': courses, 'searched': True})
 
 def faqs(request):
     return render(request, 'finder/faqs.html')

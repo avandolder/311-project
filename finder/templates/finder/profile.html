@@ -2,6 +2,14 @@
 
 {% block title %}CourseFinder{% endblock %}
 {% block content %}
+<script type="text/javascript">
+  function delete_user() {
+    if (confirm("Do you really want to delete your account?")) {
+      window.location.href = "/finder/delete_user";
+    }
+  }
+</script>
+
 <div class="profileBox">
 <center>
 <div style="font-size:25px;"><b>Profile</b></div>
@@ -17,7 +25,7 @@ Welcome to your profile, {{user.username}}!<br>
 <div class="profileBox">
 <center>
 Want to delete your account? Note: This is <b>permanant</b>.<br>
-<a href="/finder/delete_user">Delete your account</a>
+<a href="#" onclick="delete_user()">Delete your account</a>
 </center>
 </div>
 {% endif %}

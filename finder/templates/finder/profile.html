@@ -9,14 +9,16 @@
 	Please <a href="/login">login</a> to view your profile
 </center>
 {% else %}
-Welcome to your profile, {{user.username}}!
+Welcome to your profile, {{user.username}}!<br>
+<a href="/profile/paths">View your saved courses</a>
 </center>
-<div class="profileInfo">
-<ul style="padding-top:0px;">
-<li><a href="/profile/paths">View your saved courses</a></li>
-<li><a href="/finder/delete_user">Delete your account</a></li>
-</ul>
 </div>
+<br>
+<div class="profileBox">
+<center>
+Want to delete your account? Note: This is <b>permanant</b>.<br>
+<a href="/finder/delete_user">Delete your account</a>
+</center>
 </div>
 {% endif %}
 

@@ -85,7 +85,7 @@ def courseinfo(request, faculty, department, course):
     else:
         form = ReviewForm()
 
-    return render(request, 'finder/courseinfo.html', {'course': course, 'form': form, 'saved_flag:'saved_flag})
+    return render(request, 'finder/courseinfo.html', {'course': course, 'form': form, 'saved_flag':saved_flag})
 
 def savecourse(request, faculty, department, course):
     c = SavedCourse()

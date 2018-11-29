@@ -44,7 +44,7 @@ def search(request):
         else:
             courses = Course.objects.filter(name__icontains=search_query)
             print(courses)
-            if len(courses) == 1:
+            if len(courses) >= 1:
                 course = courses[0]
                 course_code = f'{course.faculty}-{course.department}-{course.course}'
                 return redirect('/courseinfo/' + course_code)

@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.forms import UserCreationForm
@@ -44,6 +44,6 @@ def paths(request):
 	#return users saved paths
 	return render(request, 'finder/paths.html')
 
-def courseinfo(request):
-	t_course = Course.objects.all()[0]	#test course
-	return render(request, 'finder/courseinfo.html', {'course':t_course})
+def courseinfo(request, faculty, department, course):
+	course = get_object_or_404(Course, faculty=faculty, department=department, course=course)
+	return render(request, 'finder/courseinfo.html', {'course': course})

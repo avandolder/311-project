@@ -18,5 +18,5 @@ urlpatterns = [
     path('search/', views.search),
     path('faqs/', views.faqs),
     path('profile/paths/', views.paths),
-    path('courseinfo/', views.courseinfo)
+    path('courseinfo/<int:faculty>-<int:department>-<int:course>', views.courseinfo, name='courseinfo')
 ]

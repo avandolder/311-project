@@ -21,7 +21,8 @@
 </center>
 </div>
   {% if courses.exists %}
-  <h3>Matched courses:</h3>
+  <div class="searchResults">
+  <div style="font-size:20px"><b>Matched courses:</b></div>
   <ul>
     {% for course in courses %}
     <li>
@@ -31,8 +32,12 @@
     </li>
     {% endfor %}
   </ul>
+  </div>
   {% elif searched %}
-  <h3>No matching courses found</h3>
+  <center>
+  <br>
+  <div style="font-size:20px"><b>No matching courses found</b></div>
+  </center>
   {% endif %}
 {% endif %}
 

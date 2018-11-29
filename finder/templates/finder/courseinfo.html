@@ -31,6 +31,10 @@
     </li>
   {% endfor %}
   </ul>
+  <br>
+  {% if saved_flag %}
+    <a href="/savecourse/{{course.faculty}}-{{course.department}}-{{course.course}}">Save Course</a>  
+  {% endif %}
 {% else %}
 	<p>Please <a href="/login">login</a> to view course info.</p>
 {% endif %}

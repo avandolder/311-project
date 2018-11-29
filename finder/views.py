@@ -67,6 +67,12 @@ def paths(request):
 def courseinfo(request, faculty, department, course):
     course = get_object_or_404(Course, faculty=faculty, department=department, course=course)
 
+    saved_flag = True
+    for i in request.user.savedcourse_set.all():
+        if i.saved_course.course == course.course and i.saved_course.department == course.department:
+            saved_flag = False
+
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -79,4 +85,12 @@ def courseinfo(request, faculty, department, course):
     else:
         form = ReviewForm()
 
-    return render(request, 'finder/courseinfo.html', {'course': course, 'form': form})
+    return render(request, 'finder/courseinfo.html', {'course': course, 'form': form, 'saved_flag:'saved_flag})
+
+def savecourse(request, faculty, department, course):
+    c = SavedCourse()
+    c.user = request.user
+    c.saved_course = get_object_or_404(Course, faculty=faculty, department=department, course=course)
+    course_code = f'{c.saved_course.faculty}-{c.saved_course.department}-{c.saved_course.course}'
+    c.save()
+    return redirect('/courseinfo/' + course_code)
